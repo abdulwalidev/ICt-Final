@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Snowboard Game</title>
+
+    <style>
+    /* Global Styles */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+
+    #gameCanvas {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Game Styles */
+    .game-container {
+        position: relative;
+        width: 400px;
+        height: 200px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .game-board {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #333;
+        width: 80%;
+        height: 90%;
+        border-radius: 10px;
+    }
+
+    .snowboard {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 60px;
+        background-color: #fff;
+        border-radius: 10px;
+    }
+
+    /* Text Styles */
+    .text {
+        font-size: 24px;
+        color: #333;
+    }
+    </style>
+</head>
+
+<body>
+    <canvas id="gameCanvas" width="400" height="200"></canvas>
+
+    <script>
+    // Get the canvas element
+    const gameCanvas = document.getElementById('gameCanvas');
+
+    // Create a new drawing context
+    const ctx = gameCanvas.getContext('2d');
+
+    // Define game variables
+    let snowboardX = 200;
+    let snowboardY = 150;
+
+    // Game loop
+    function draw() {
+        // Clear the canvas
+        ctx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
+
+        // Draw the game board
+        ctx.fillStyle = '#333';
+        ctx.fillRect(snowboardX - 50, snowboardY - 90, 100, 180);
+
+        // Draw the snowboard
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(snowboardX + 20, snowboardY + 10, 40, 60);
+
+        // Update the game state (e.g., update player position)
+        // For now, we'll just keep the snowboard stationary
+
+        // Schedule the next frame
+        requestAnimationFrame(draw);
+    }
+
+    // Start the game loop
+    draw();
+    </script>
+</body>
+</html>
